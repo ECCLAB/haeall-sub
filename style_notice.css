@@ -1,0 +1,573 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+html, body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+.background {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow: hidden;
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  height: 125vh;
+  /* 원래 height 130 이었는데 125가 더 자연스러운듯 해서 내가 바껐지롱 */
+  position: absolute;
+  width: 100%;
+  transform: translateY(30vh);
+  transition: all 1.2s cubic-bezier(0.22, 0.44, 0, 1);
+}
+
+.background:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background-color: rgba(0, 0, 0, 0.3); */
+}
+.background:first-child {
+  background-color: #0d0d0d;
+  /* background-image: url(./imgs_about/notice.jpg); */
+  transform: translateY(-15vh);
+}
+.background:first-child .content-wrapper {
+  transform: translateY(15vh);
+}
+.background:nth-child(2) {
+  background-color: #ededed;
+  /* background: url(./imgs_about/004.jpg) no-repeat center/cover rgba(0, 0, 0, 0.3) ;
+  background-blend-mode: multiply; */
+  
+  /* background-image: url(./img_main/013.jpg); */
+}
+.background:nth-child(3) {
+  background-color: #fff;
+}
+
+/* Set stacking context of slides */
+.background:nth-child(1) {
+  z-index: 5;
+}
+
+.background:nth-child(2) {
+  z-index: 4;
+}
+
+.background:nth-child(3) {
+  z-index: 3;
+}
+.background:nth-child(4) {
+  z-index: 2;
+}
+
+.background:nth-child(5) {
+  z-index: 1;
+}
+
+
+.content-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-flow: column nowrap;
+  color: #fff;
+  font-family: Montserrat;
+  /* text-transform: uppercase; */
+  transform: translateY(40vh);
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transition: all 1.7s cubic-bezier(0.22, 0.44, 0, 1);
+
+  align-items: center;
+}
+
+.content-title {
+  color: #fff;
+  font-size: 80px;
+  font-family: rixmmjse-pro, serif;
+  font-weight: normal;
+  margin: 0;
+  z-index: 1;
+}
+
+.content-subtitle {
+  width: 60%;
+  text-align: center;
+  font-size: 1.8vh;
+  line-height: 1.5;
+}
+
+.content-subtitle img {
+  width: 10 .0%;
+}
+
+.content-subtitle.firstpage {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: rixmmjse-pro, serif;
+  font-size: 14px;
+  letter-spacing: 5px;
+  margin: 10px 0 0 0;
+  font-weight: normal;
+}
+.content-title.firstpage_line{
+  height: 1px;
+  width: 200px;
+  background-color: #fff;
+  display: block;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.content-firstpage_text {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: rixmmjse-pro, serif;
+  font-size: 30px;
+  line-height: 1.8;
+  margin: 0 0 10px 0;
+  font-weight: 700;
+  width: 600px;
+}
+.content-firstpage_subtext{
+  color: rgba(255, 255, 255, 0.5);
+  font-family: rixmmjse-pro, serif;
+  font-size: 16px;
+  line-height: 1.8;
+  margin: 10px 0 0 0;
+  font-weight: normal;
+  width: 600px;
+}
+
+/* 비디오 블렌드 모드 */
+
+.video_background_blendmod_opa{
+  display: block;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: -99;
+  background-color: #23232388;
+}
+
+
+
+.content-title.pulspage_1{
+  padding: 20px 0 20px 0;
+  font-size: 40px;
+  letter-spacing :0px;
+}
+.content-subtitle.pulspage_1 {
+  padding: 10px 0 10px 0;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.background.up-scroll {
+  transform: translate3d(0, -15vh, 0);
+}
+.background.up-scroll .content-wrapper {
+  transform: translateY(15vh);
+}
+.background.up-scroll + .background {
+  transform: translate3d(0, 30vh, 0);
+}
+.background.up-scroll + .background .content-wrapper {
+  transform: translateY(30vh);
+}
+
+.background.down-scroll {
+  transform: translate3d(0, -130vh, 0);
+}
+.background.down-scroll .content-wrapper {
+  transform: translateY(40vh);
+}
+.background.down-scroll + .background:not(.down-scroll) {
+  transform: translate3d(0, -15vh, 0);
+}
+.background.down-scroll + .background:not(.down-scroll) .content-wrapper {
+  transform: translateY(15vh);
+}
+/* 메뉴 css 부분 */
+
+label {
+  position: absolute;
+  z-index: 99;
+  
+}
+
+input {
+  display: none;
+}
+
+input:checked ~ label {
+  right: 0;
+}
+
+.burger {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  cursor: pointer;
+}
+
+.burger g {
+  stroke: #ffffff;
+  transition: stroke 0.25s ease-in-out;
+}
+
+.burger g:hover {
+  stroke: #cccccc;
+}
+
+input:checked ~ label .burger {
+  opacity: 0;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  left: 5px;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.close g:hover {
+  stroke: #cccccc;
+}
+
+.close g {
+  stroke: #ffffff;
+  transition: stroke 0.25s ease-in-out;
+}
+
+.close line {
+  transform-origin: 0%;
+}
+
+.close g {
+  transform: rotateZ(45deg);
+  transform-origin: 50%;
+}
+
+input:checked ~ label .close {
+  opacity: 1;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  opacity: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 50px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+
+  z-index: -99999;
+}
+
+
+input:checked ~ .menu {
+  opacity: 1;
+  z-index: 97;
+}
+
+.menu a {
+  transition: margin 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-decoration: none;
+  color: #ffffff;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input:checked ~ .menu div {
+  margin-top: 0px;
+}
+
+
+
+@keyframes wobble-horizontal {
+  16.65% {
+    transform: translateX(8px);
+  }
+  33.3% {
+    transform: translateX(-6px);
+  }
+  49.95% {
+    transform: translateX(4px);
+  }
+  66.6% {
+    transform: translateX(-2px);
+  }
+  83.25% {
+    transform: translateX(1px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.grow {
+  display: inline-block;
+  transition-duration: 0.4s;
+  transition-property: transform;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  opacity: 0.5;
+}
+
+.grow span {
+  font-size: 16px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: normal;
+
+  margin-left: 20px;
+}
+.grow:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  transition: 0.4s;
+}
+
+.menu div {
+  height: 20.1%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content:center ;
+
+}
+
+.menu_bg{
+  position: absolute;
+  background-color: #191919;
+  /* background:url(./001.jpg) no-repeat center/cover rgba(0, 0, 0, 1); */
+  background-blend-mode: multiply;
+  width: 100%;
+}
+
+.menu div:nth-child(1) a:hover + .menu_bg {
+  background-color: #a5a67a;
+  transition: 0.7s;
+}
+.menu div:nth-child(2) a:hover + .menu_bg {
+  background-color: #606757;
+  transition: 0.7s;
+}
+.menu div:nth-child(3) a:hover + .menu_bg {
+  background-color: #ecdac4;
+  transition: 0.7s;
+}
+.menu div:nth-child(4) a:hover + .menu_bg {
+  background-color: #d79d9b;
+  transition: 0.7s;
+}
+.menu div:nth-child(5) a:hover + .menu_bg {
+  background-color: #b07e75;
+  transition: 0.7s;
+}
+.menu div:nth-child(6) a:hover + .menu_bg {
+  background-color: #e9af8a;
+  transition: 0.7s;
+}
+
+
+
+/* 메인페이지 background 적용예시 */
+.background_video_mainpage{
+  width: 100%;
+  height: 100vh;
+}
+
+.navigation_mainsection {
+  position: absolute;
+}
+
+
+/* 2번째 페이지 백그라운드 블러처리용 */
+.background_blend_mode{
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(5px);
+}
+
+.content-title.twopage {
+  font-size: 7vh;
+  letter-spacing :7px;
+}
+
+.content-title.thirdpage {
+  font-size: 10vh;
+}
+
+.notice_bg {
+  color: #232323;
+  font-family: rixmmjse-pro, serif;
+  font-size: 16px;
+  line-height: 1.8;
+  margin: 10px 0 0 0;
+  height: 100vh;
+  width: 80%;
+
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: left;
+  
+}
+
+.notice_bg div:nth-child(1){
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 12vh;
+}
+.notice_bg div:nth-child(2){
+  font-size: 18px;
+  margin-top: 12vh;
+}
+.notice_info li {
+  padding: 10px 0 10px 0;
+  margin-right: 20px;
+}
+.notice_info span {
+  font-weight: 700;
+  padding: 0 10px 0 10px;
+}
+.notice_sns {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  margin-right: 20px;
+}
+
+.notice_sns li {
+  padding-left: 20px;
+}
+.notice_sns a img{
+  width: 30px;
+  height: 30px;
+}
+.haeall_google_map{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 40vh;
+  bottom: 10vh;
+}
+
+
+
+@media screen and (max-height: 760px){
+  .notice_bg div:nth-child(1){
+    margin-top: 2vh;
+  }
+  .notice_bg div:nth-child(2){
+    margin-top: 2vh;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .main_video video{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .content-title {
+    font-size: 120px;
+  }
+  .content-subtitle.firstpage {
+    font-size: 30px;
+  }
+  .content-title.twopage {
+    font-size: 60px;
+  }
+  .content-title.thirdpage {
+    font-size: 60px;
+  }
+  .content-subtitle {
+    font-size: 22px;
+    line-height: 1.7;
+    width: 80%;
+    margin-top: 60px;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  
+}
+
+@media screen and (max-height : 600px) {
+  */
+   .content-subtitle {
+     margin-top: 0;
+   }
+   .timeline ol {
+     padding: 230px 0;
+   }
+   .menu {
+     height: 95vh;
+   }
+   .haeall_google_map{
+    bottom: 2vh;
+   }
+ }
+
+ .scroll_text {
+  letter-spacing: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  position: fixed;
+  z-index: 1;
+  bottom: 7%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: 7px;
+  color: #ededed;
+  z-index: 93;
+}
+
+.scroll_img{
+  position: fixed;
+  z-index: 93;
+  bottom: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.scroll_img img {
+  margin-bottom: 0px;
+  width: 40px;
+  animation: downAnimation 1s infinite;
+}
+@keyframes downAnimation {
+  0% {bottom: 4%;}
+  100% {margin-bottom: -20px;}
+}
+
+@media screen and (max-width: 1080px){
+  .scroll_img{
+    bottom: 5%;
+  }
+}
